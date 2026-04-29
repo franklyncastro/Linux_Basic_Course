@@ -1,479 +1,1610 @@
-<!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="x-apple-disable-message-reformatting">
-  <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">
-  <title>Confirmación de Pedido #ORD-2024-0391</title>
-  <!--[if mso]>
-  <noscript>
-    <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
-  </noscript>
-  <![endif]-->
-  <style>
-    /* RESET */
-    * { box-sizing: border-box; }
-    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-    img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
-    body { margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #F5F4F0; }
 
-    /* GOOGLE FONTS (fallback safe for Outlook) */
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* WRAPPER */
-    .email-wrapper {
-      width: 100%;
-      background-color: #F5F4F0;
-      padding: 40px 16px;
-      font-family: 'DM Sans', Arial, sans-serif;
-    }
+  body, .container {
+    background: #0a0f0a;
+  }
 
-    /* CARD */
-    .email-card {
-      max-width: 580px;
-      margin: 0 auto;
-      background-color: #FAFAF8;
-      border-radius: 2px;
-      overflow: hidden;
-    }
+  .container {
+    font-family: 'Courier New', monospace;
+    padding: 1.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+    background: #0a0f0a;
+    min-height: 100vh;
+  }
 
-    /* HEADER */
-    .header {
-      background-color: #1A1A1A;
-      padding: 36px 48px 32px;
-      text-align: center;
-    }
-    .brand-name {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 22px;
-      color: #F5F4F0;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin: 0 0 28px 0;
-    }
-    .header-label {
-      display: inline-block;
-      background-color: #C9B99A;
-      color: #1A1A1A;
-      font-family: 'DM Sans', Arial, sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 1px;
-      margin-bottom: 16px;
-    }
-    .header-title {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 30px;
-      color: #FAFAF8;
-      margin: 0;
-      font-weight: 400;
-      line-height: 1.2;
-    }
-    .header-title em {
-      color: #C9B99A;
-      font-style: italic;
-    }
+  .header {
+    background: #0f1f10;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #2d5a30;
+    text-align: center;
+  }
 
-    /* BODY */
-    .body-section {
-      padding: 44px 48px;
-    }
-    .greeting {
-      font-size: 15px;
-      color: #3D3D3D;
-      line-height: 1.7;
-      margin: 0 0 32px 0;
-      font-weight: 300;
-    }
-    .greeting strong {
-      font-weight: 600;
-      color: #1A1A1A;
-    }
+  .terminal-bar {
+    background: #1a1a1a;
+    border-radius: 8px 8px 0 0;
+    padding: 7px 14px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin: -1.5rem -1.5rem 1.2rem -1.5rem;
+  }
 
-    /* ORDER BOX */
-    .order-meta {
-      border: 1px solid #E5E3DC;
-      border-radius: 2px;
-      padding: 20px 24px;
-      margin-bottom: 36px;
-      display: flex;
-      gap: 0;
-    }
-    .order-meta-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .order-meta-table td {
-      padding: 4px 0;
-      font-size: 13px;
-    }
-    .order-meta-table .label {
-      color: #999;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      font-size: 11px;
-      width: 40%;
-    }
-    .order-meta-table .value {
-      color: #1A1A1A;
-      font-weight: 500;
-    }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .terminal-label { color: #555; font-size: 12px; margin-left: auto; }
 
-    /* DIVIDER */
-    .divider {
-      border: none;
-      border-top: 1px solid #E5E3DC;
-      margin: 0 0 28px 0;
-    }
+  .header h1 {
+    color: #4caf50;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
 
-    /* SECTION TITLE */
-    .section-title {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #999;
-      margin: 0 0 16px 0;
-    }
+  .header p { color: #81c784; font-size: 14px; }
 
-    /* PRODUCT LIST */
-    .product-row {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 8px;
-    }
-    .product-row td {
-      vertical-align: top;
-      padding: 14px 0;
-      border-bottom: 1px solid #EEECE6;
-    }
-    .product-img-cell { width: 60px; }
-    .product-img {
-      width: 56px;
-      height: 56px;
-      object-fit: cover;
-      border-radius: 2px;
-      background-color: #E5E3DC;
-      display: block;
-    }
-    .product-img-placeholder {
-      width: 56px;
-      height: 56px;
-      background-color: #E5E3DC;
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .product-details { padding-left: 16px; }
-    .product-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: #1A1A1A;
-      margin: 0 0 4px 0;
-    }
-    .product-variant {
-      font-size: 12px;
-      color: #999;
-      margin: 0;
-    }
-    .product-price {
-      text-align: right;
-      font-size: 14px;
-      font-weight: 500;
-      color: #1A1A1A;
-      white-space: nowrap;
-    }
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+    justify-content: center;
+  }
 
-    /* TOTALS */
-    .totals-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 8px;
-    }
-    .totals-table td {
-      padding: 6px 0;
-      font-size: 13px;
-    }
-    .totals-table .total-label { color: #777; }
-    .totals-table .total-value { text-align: right; color: #1A1A1A; font-weight: 400; }
-    .totals-table .grand-label {
-      font-size: 15px;
-      font-weight: 600;
-      color: #1A1A1A;
-      padding-top: 14px;
-      border-top: 1px solid #E5E3DC;
-    }
-    .totals-table .grand-value {
-      font-size: 15px;
-      font-weight: 600;
-      color: #1A1A1A;
-      text-align: right;
-      padding-top: 14px;
-      border-top: 1px solid #E5E3DC;
-    }
+  .tab-btn {
+    background: #111811;
+    border: 1px solid #2d5a30;
+    color: #81c784;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
 
-    /* SHIPPING */
-    .shipping-box {
-      background-color: #F0EEE8;
-      border-radius: 2px;
-      padding: 20px 24px;
-      margin: 32px 0;
-    }
-    .shipping-box .section-title { margin-bottom: 12px; }
-    .shipping-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: #1A1A1A;
-      margin: 0 0 4px 0;
-    }
-    .shipping-address {
-      font-size: 13px;
-      color: #666;
-      margin: 0;
-      line-height: 1.6;
-    }
+  .tab-btn:hover { background: #1a3a1c; color: #c8e6c9; }
 
-    /* CTA BUTTON */
-    .cta-wrap {
-      text-align: center;
-      margin: 36px 0 8px;
-    }
-    .cta-btn {
-      display: inline-block;
-      background-color: #1A1A1A;
-      color: #F5F4F0 !important;
-      text-decoration: none;
-      font-family: 'DM Sans', Arial, sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 16px 36px;
-      border-radius: 1px;
-    }
+  .tab-btn.active {
+    background: #1a7a3c;
+    color: #e8f5e9;
+    border-color: #4caf50;
+  }
 
-    /* FOOTER */
-    .footer {
-      background-color: #1A1A1A;
-      padding: 32px 48px;
-      text-align: center;
-    }
-    .footer-brand {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 16px;
-      color: #F5F4F0;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin: 0 0 16px 0;
-    }
-    .footer-links {
-      margin: 0 0 20px 0;
-    }
-    .footer-links a {
-      color: #999 !important;
-      text-decoration: none;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin: 0 10px;
-    }
-    .footer-text {
-      font-size: 11px;
-      color: #666;
-      line-height: 1.6;
-      margin: 0;
-    }
-    .footer-text a { color: #C9B99A !important; text-decoration: none; }
+  .week-panel { display: none; }
+  .week-panel.active { display: block; }
 
-    /* DELIVERY BADGE */
-    .delivery-badge {
-      background-color: #2A2A2A;
-      border: 1px solid #333;
-      border-radius: 2px;
-      padding: 16px 24px;
-      margin: 0 48px 0;
-      text-align: center;
-    }
-    .delivery-badge-inner {
-      font-size: 12px;
-      color: #C9B99A;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-    .delivery-badge-date {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 18px;
-      color: #FAFAF8;
-      margin: 4px 0 0 0;
-    }
+  .week-header {
+    background: #0f1f10;
+    border: 1px solid #2d5a30;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
 
-    /* RESPONSIVE */
-    @media only screen and (max-width: 600px) {
-      .body-section { padding: 32px 24px !important; }
-      .header { padding: 28px 24px !important; }
-      .header-title { font-size: 24px !important; }
-      .footer { padding: 28px 24px !important; }
-    }
-  </style>
-</head>
-<body>
-  <div class="email-wrapper">
-    <div class="email-card">
+  .week-header h2 {
+    color: #4caf50;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 
-      <!-- ═══════════════ HEADER ═══════════════ -->
-      <div class="header">
-        <p class="brand-name">Style&nbsp;&nbsp;·&nbsp;&nbsp;Dom</p>
-        <div>
-          <span class="header-label">✓ &nbsp;Pedido Confirmado</span>
+  .week-header p { color: #81c784; font-size: 13px; margin-top: 4px; }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 1.2rem;
+  }
+
+  .overview-card {
+    background: #0f1f10;
+    border: 1px solid #2d5a30;
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+
+  .overview-week { font-size: 12px; font-weight: 700; color: #4caf50; text-transform: uppercase; letter-spacing: 0.5px; }
+  .overview-title { font-size: 14px; font-weight: 500; color: #c8e6c9; margin-top: 3px; }
+  .overview-days { font-size: 12px; color: #66bb6a; margin-top: 3px; }
+
+  .day-card {
+    background: #0f1f10;
+    border: 1px solid #1e3d20;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .day-header:hover { background: #162a17; }
+
+  .day-num {
+    background: #1a7a3c;
+    color: #e8f5e9;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .day-title-group { flex: 1; }
+
+  .day-title { font-size: 15px; font-weight: 500; color: #c8e6c9; }
+  .day-subtitle { font-size: 13px; color: #66bb6a; margin-top: 2px; }
+
+  .day-toggle { color: #4caf50; font-size: 13px; transition: transform 0.2s; }
+  .day-toggle.open { transform: rotate(180deg); }
+
+  .day-body {
+    display: none;
+    border-top: 1px solid #1e3d20;
+    padding: 16px;
+  }
+
+  .day-body.open { display: block; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .section-label:first-child { margin-top: 0; }
+
+  .label-teoria { background: #0d2a3d; color: #64b5f6; }
+  .label-comandos { background: #0d2a12; color: #4caf50; }
+  .label-ejercicio { background: #2a1f00; color: #ffb300; }
+  .label-tip { background: #1f0a2a; color: #ba68c8; }
+  .label-plus { background: #2a0d0d; color: #ef5350; }
+
+  .teoria-block {
+    font-size: 14px;
+    color: #a5d6a7;
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .teoria-block strong { color: #c8e6c9; }
+  .teoria-block code { background: #1a3a1c; color: #69f0ae; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+
+  .cmd-block {
+    background: #060e06;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #1e3d20;
+  }
+
+  .cmd-bar {
+    background: #0f1f10;
+    padding: 5px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cmd-bar-label { color: #4caf50; font-size: 12px; font-weight: 700; }
+  .cmd-bar-desc { color: #66bb6a; font-size: 11px; }
+
+  .cmd-code {
+    padding: 12px 16px;
+    color: #a5d6a7;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+  }
+
+  .cmd-comment { color: #3d6b40; }
+
+  .ejercicio-block {
+    background: #1a1200;
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 8px;
+  }
+
+  .ejercicio-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffb300;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .ejercicio-steps { list-style: none; counter-reset: step-counter; }
+
+  .ejercicio-steps li {
+    counter-increment: step-counter;
+    font-size: 14px;
+    color: #ffe082;
+    line-height: 1.65;
+    padding: 5px 0 5px 30px;
+    position: relative;
+    border-bottom: 1px solid #2a1f00;
+  }
+
+  .ejercicio-steps li:last-child { border-bottom: none; }
+
+  .ejercicio-steps li code { background: #2a1f00; color: #ffd54f; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+
+  .ejercicio-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 6px;
+    background: #f59e0b;
+    color: #0a0a00;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tip-block {
+    background: #1a0d2a;
+    border-left: 3px solid #9c27b0;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: #ce93d8;
+    line-height: 1.7;
+    margin-top: 8px;
+  }
+
+  .plus-block {
+    background: #1a0808;
+    border: 1px dashed #ef5350;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 8px;
+  }
+
+  .plus-title { font-size: 12px; font-weight: 700; color: #ef5350; margin-bottom: 6px; text-transform: uppercase; }
+  .plus-content { font-size: 14px; color: #ffcdd2; line-height: 1.7; }
+  .plus-content code { background: #2a0808; color: #ff8a80; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+
+  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+
+  .badge { font-size: 12px; padding: 4px 10px; border-radius: 12px; font-weight: 500; }
+  .badge-green { background: #0f2a12; color: #69f0ae; border: 1px solid #1b5e20; }
+  .badge-blue { background: #0a1929; color: #64b5f6; border: 1px solid #0d47a1; }
+  .badge-amber { background: #1a1200; color: #ffd54f; border: 1px solid #f57f17; }
+  .badge-purple { background: #1a0a2a; color: #ce93d8; border: 1px solid #4a148c; }
+
+  .ask-btn {
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid #2d5a30;
+    color: #66bb6a;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .ask-btn:hover { background: #0f1f10; color: #a5d6a7; border-color: #4caf50; }
+</style>
+
+<div class="container">
+  <div class="header">
+    <div class="terminal-bar">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+      <span class="terminal-label">franklyn@kali:~$ ./ruta_ingeniero_linux.sh</span>
+    </div>
+    <h1>Plan 30 Días — Ingeniero Linux I</h1>
+    <p>Guía completa · Teoría + Comandos + Ejercicios diarios · Kali Linux en VirtualBox</p>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="overview-week">Semana 1</div>
+      <div class="overview-title">Fundamentos del Sistema</div>
+      <div class="overview-days">Días 1–7 · Navegación, permisos, usuarios</div>
+    </div>
+    <div class="overview-card">
+      <div class="overview-week">Semana 2</div>
+      <div class="overview-title">Shell Scripting</div>
+      <div class="overview-days">Días 8–14 · Scripts, automatización, KPIs</div>
+    </div>
+    <div class="overview-card">
+      <div class="overview-week">Semana 3</div>
+      <div class="overview-title">Servidores & Redes</div>
+      <div class="overview-days">Días 15–21 · Procesos, SSH, networking</div>
+    </div>
+    <div class="overview-card">
+      <div class="overview-week">Semana 4</div>
+      <div class="overview-title">Admin Avanzada + Repaso</div>
+      <div class="overview-days">Días 22–30 · Logs, cron, simulacros</div>
+    </div>
+  </div>
+
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showWeek('w1',this)">Semana 1</button>
+    <button class="tab-btn" onclick="showWeek('w2',this)">Semana 2</button>
+    <button class="tab-btn" onclick="showWeek('w3',this)">Semana 3</button>
+    <button class="tab-btn" onclick="showWeek('w4',this)">Semana 4</button>
+  </div>
+
+  <!-- SEMANA 1 -->
+  <div id="w1" class="week-panel active">
+    <div class="week-header">
+      <h2>Semana 1 · Fundamentos del Sistema Linux</h2>
+      <p>El objetivo esta semana: moverte con confianza por cualquier servidor Linux/Unix</p>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d1')">
+        <div class="day-num">1</div>
+        <div class="day-title-group">
+          <div class="day-title">Estructura del sistema de archivos</div>
+          <div class="day-subtitle">FHS · Directorios críticos · Navegación básica</div>
         </div>
-        <h1 class="header-title">Gracias por tu<br><em>confianza</em></h1>
+        <div class="day-toggle" id="toggle-d1">▼</div>
       </div>
-
-      <!-- ═══════════════ DELIVERY ESTIMATE ═══════════════ -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#222222; padding: 0 48px;">
-        <tr>
-          <td style="padding: 0 48px;">
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#2A2A2A; border:1px solid #333; border-radius:2px; padding:0;">
-              <tr>
-                <td style="padding:16px 24px; text-align:center;">
-                  <p style="font-family:'DM Sans',Arial,sans-serif; font-size:11px; color:#C9B99A; letter-spacing:2px; text-transform:uppercase; font-weight:600; margin:0 0 4px 0;">Entrega estimada</p>
-                  <p style="font-family:'DM Serif Display',Georgia,serif; font-size:20px; color:#FAFAF8; margin:0;">Viernes, 27 de Marzo 2026</p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-
-      <!-- ═══════════════ BODY ═══════════════ -->
-      <div class="body-section">
-
-        <!-- Greeting -->
-        <p class="greeting">
-          Hola, <strong> --NOMBRE DEL CLIENTE--</strong> 👋<br><br>
-          Hemos recibido tu pedido y ya está siendo preparado con el mayor cuidado. 
-          Te notificaremos en cuanto sea despachado. A continuación encontrarás un 
-          resumen completo de tu compra.
-        </p>
-
-        <!-- Order Meta -->
-        <table class="order-meta-table" cellpadding="0" cellspacing="0" border="0"
-               style="border:1px solid #E5E3DC; border-radius:2px; padding:0; width:100%; margin-bottom:36px;">
-          <tr>
-            <td style="padding:16px 24px;">
-              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td style="font-family:'DM Sans',Arial,sans-serif; font-size:11px; color:#999; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:4px 0; width:45%;">N° 2024-0391</td>
-                  <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#1A1A1A; font-weight:500; padding:4px 0;">#ORD-2024-0391</td>
-                </tr>
-                <tr>
-                  <td style="font-family:'DM Sans',Arial,sans-serif; font-size:11px; color:#999; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:4px 0;">Fecha</td>
-                  <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#1A1A1A; font-weight:500; padding:4px 0;">13 de Marzo, 2025</td>
-                </tr>
-                <tr>
-                  <td style="font-family:'DM Sans',Arial,sans-serif; font-size:11px; color:#999; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:4px 0;">Método de pago</td>
-                  <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#1A1A1A; font-weight:500; padding:4px 0;">Visa •••• 4721</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-
-        <!-- Products -->
-        <p class="section-title">Resumen del pedido</p>
-        <hr class="divider">
-
-        <!-- Product 1 -->
-        <table class="product-row" cellpadding="0" cellspacing="0" border="0" width="100%">
-          <tr>
-            <td style="width:60px; vertical-align:top; padding:14px 0; border-bottom:1px solid #EEECE6;">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td style="width:56px; height:56px; background-color:#D8D3C8; border-radius:2px; text-align:center; vertical-align:middle;">
-                    <span style="font-size:22px;">👜</span>
-                  </td>
-                </tr>
-              </table>
-            </td>
-            <td style="vertical-align:top; padding:14px 16px; border-bottom:1px solid #EEECE6;">
-              <p style="font-family:'DM Sans',Arial,sans-serif; font-size:14px; font-weight:500; color:#1A1A1A; margin:0 0 4px 0;">Bolso Cabas de Piel</p>
-              <p style="font-family:'DM Sans',Arial,sans-serif; font-size:12px; color:#999; margin:0;">Color: Camel · Talla: Única</p>
-            </td>
-            <td style="vertical-align:top; text-align:right; padding:14px 0; border-bottom:1px solid #EEECE6; white-space:nowrap;">
-              <p style="font-family:'DM Sans',Arial,sans-serif; font-size:14px; font-weight:500; color:#1A1A1A; margin:0;">$289.00</p>
-              <p style="font-family:'DM Sans',Arial,sans-serif; font-size:12px; color:#999; margin:4px 0 0 0;">x 1</p>
-            </td>
-          </tr>
-        </table>
-
-        <!-- Totals -->
-        <table class="totals-table" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:8px;">
-          <tr>
-            <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#777; padding:6px 0;">Subtotal</td>
-            <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#1A1A1A; text-align:right; padding:6px 0;">$289.00</td>
-          </tr>
-          <tr>
-            <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#777; padding:6px 0;">Envío</td>
-            <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#2E7D52; text-align:right; padding:6px 0; font-weight:500;">Gratis</td>
-          </tr>
-          <tr>
-            <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#777; padding:6px 0;">Descuento (BIENVENIDA10)</td>
-            <td style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#C0553D; text-align:right; padding:6px 0;">−$28.90</td>
-          </tr>
-          <tr>
-            <td style="font-family:'DM Sans',Arial,sans-serif; font-size:15px; font-weight:600; color:#1A1A1A; padding-top:14px; border-top:1px solid #E5E3DC;">Total pagado</td>
-            <td style="font-family:'DM Sans',Arial,sans-serif; font-size:15px; font-weight:600; color:#1A1A1A; text-align:right; padding-top:14px; border-top:1px solid #E5E3DC;">$260.10</td>
-          </tr>
-        </table>
-
-        <!-- Shipping Address -->
-        <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:32px 0;">
-          <tr>
-            <td style="background-color:#F0EEE8; border-radius:2px; padding:20px 24px;">
-              <p style="font-family:'DM Sans',Arial,sans-serif; font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:#999; margin:0 0 12px 0;">Dirección de envío</p>
-              <p style="font-family:'DM Sans',Arial,sans-serif; font-size:14px; font-weight:500; color:#1A1A1A; margin:0 0 4px 0;"> --NOMBRE CLIENTE-- </p>
-              <p style="font-family:'DM Sans',Arial,sans-serif; font-size:13px; color:#666; margin:0; line-height:1.6;">
-                Calle Serrano 42, Piso 3°B<br>
-                28001 Madrid, España<br>
-                +34 612 345 678
-              </p>
-            </td>
-          </tr>
-        </table>
-
-        <!-- CTA -->
-        <div class="cta-wrap">
-          <a href="#" class="cta-btn">Rastrear mi pedido</a>
+      <div id="body-d1" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          Linux usa el FHS (Filesystem Hierarchy Standard). Todo parte desde <code>/</code> (la raíz). Los directorios más importantes:<br><br>
+          <strong>/etc</strong> — Archivos de configuración del sistema<br>
+          <strong>/var</strong> — Datos variables: logs, colas, bases de datos en ejecución<br>
+          <strong>/home</strong> — Carpetas de usuarios (/home/franklyn)<br>
+          <strong>/bin, /usr/bin</strong> — Programas ejecutables<br>
+          <strong>/sbin, /usr/sbin</strong> — Comandos de administración (requieren root)<br>
+          <strong>/tmp</strong> — Archivos temporales, se borran al reiniciar<br>
+          <strong>/proc</strong> — Sistema virtual: información del kernel y procesos en tiempo real<br>
+          <strong>/dev</strong> — Dispositivos de hardware representados como archivos<br>
+          <strong>/mnt, /media</strong> — Puntos de montaje para discos y USB
         </div>
+        <span class="section-label label-comandos">Comandos esenciales</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Navegación</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># ¿Dónde estoy?</span>
+pwd
 
-      </div><!-- /body-section -->
+<span class="cmd-comment"># Listar archivos con detalles</span>
+ls -la
 
-      <!-- ═══════════════ FOOTER ═══════════════ -->
-      <div class="footer">
-        <p class="footer-brand">Style · Dom</p>
-        <div class="footer-links">
-          <a href="#">Política de devoluciones</a>
-          <a href="#">Contacto</a>
-          <a href="#">Mi cuenta</a>
+<span class="cmd-comment"># Ir a la raíz</span>
+cd /
+
+<span class="cmd-comment"># Ir a mi home</span>
+cd ~
+
+<span class="cmd-comment"># Subir un directorio</span>
+cd ..
+
+<span class="cmd-comment"># Ver árbol de directorios</span>
+tree / -L 2
+
+<span class="cmd-comment"># ¿Qué tipo de archivo es este?</span>
+file /etc/passwd</div>
         </div>
-        <p class="footer-text">
-          ¿Tienes alguna pregunta? Escríbenos a 
-          <a href="mailto:hola@StyleDom.com">wheare@styledom.com</a><br><br>
-          © 2026 Style Dom · Todos los derechos reservados<br>
-          <a href="#">Cancelar suscripción</a>
-        </p>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Mapa mental del servidor</div>
+          <ol class="ejercicio-steps">
+            <li>Abre Kali Linux en VirtualBox y abre una terminal</li>
+            <li>Escribe <code>cd /</code> y luego <code>ls -la</code> — observa todos los directorios</li>
+            <li>Entra a cada directorio importante: <code>cd /etc && ls | head -20</code></li>
+            <li>Haz lo mismo con <code>/var/log</code> y <code>/proc</code></li>
+            <li>Guarda el árbol: <code>tree / -L 2 > ~/mapa_sistema.txt</code></li>
+            <li>Léelo: <code>cat ~/mapa_sistema.txt | less</code> — navega con flechas, sal con <code>q</code></li>
+          </ol>
+        </div>
+        <span class="section-label label-tip">Tip profesional</span>
+        <div class="tip-block">En un trabajo real, lo primero que harás en un servidor nuevo es explorar /etc y /var/log. Memorizar esta estructura te ahorrará horas de búsqueda.</div>
+        <button class="ask-btn" onclick="sendPrompt('Explícame más a fondo el directorio /proc en Linux y cómo usarlo para diagnóstico')">Profundizar en /proc ↗</button>
       </div>
+    </div>
 
-    </div><!-- /email-card -->
-  </div><!-- /email-wrapper -->
-</body>
-</html>
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d2')">
+        <div class="day-num">2</div>
+        <div class="day-title-group">
+          <div class="day-title">Gestión de archivos y texto</div>
+          <div class="day-subtitle">cp · mv · rm · cat · grep · find</div>
+        </div>
+        <div class="day-toggle" id="toggle-d2">▼</div>
+      </div>
+      <div id="body-d2" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          En Linux todo es un archivo — incluso los dispositivos y procesos. <strong>grep</strong> es quizás el comando más usado en el trabajo real para encontrar información dentro de logs y configuraciones.
+        </div>
+        <span class="section-label label-comandos">Comandos esenciales</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Archivos y búsqueda</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Crear archivo vacío</span>
+touch reporte.txt
+
+<span class="cmd-comment"># Copiar archivo</span>
+cp reporte.txt /tmp/backup_reporte.txt
+
+<span class="cmd-comment"># Mover/renombrar</span>
+mv reporte.txt reporte_final.txt
+
+<span class="cmd-comment"># Eliminar (sin papelera, irreversible)</span>
+rm archivo.txt
+
+<span class="cmd-comment"># Ver contenido</span>
+cat /etc/passwd
+
+<span class="cmd-comment"># Ver con paginación</span>
+less /var/log/syslog
+
+<span class="cmd-comment"># Buscar texto dentro de archivos</span>
+grep "error" /var/log/syslog
+grep -i "failed" /var/log/auth.log
+grep -r "root" /etc/
+
+<span class="cmd-comment"># Buscar archivos por nombre</span>
+find / -name "*.conf" 2>/dev/null
+find /home -type f -mtime -7</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Simulación de análisis de logs</div>
+          <ol class="ejercicio-steps">
+            <li>Crea un directorio: <code>mkdir ~/practica && cd ~/practica</code></li>
+            <li>Crea archivos: <code>touch log1.txt log2.txt config.conf app.log</code></li>
+            <li>Añade contenido: <code>echo "ERROR: conexión fallida" >> app.log</code></li>
+            <li>Busca errores: <code>grep -i "error" app.log</code></li>
+            <li>Busca todos los .log en tu home: <code>find ~ -name "*.log"</code></li>
+            <li>Copia todos los .txt a /tmp: <code>cp *.txt /tmp/</code></li>
+          </ol>
+        </div>
+        <span class="section-label label-plus">Plus — Pipes y redirección</span>
+        <div class="plus-block">
+          <div class="plus-title">Encadenar comandos (esencial en el trabajo)</div>
+          <div class="plus-content">
+            <code>cat /var/log/syslog | grep "error" | wc -l</code> — cuenta líneas con "error"<br>
+            <code>ls -la /etc | grep ".conf" > mis_configs.txt</code> — guarda resultado en archivo<br>
+            El símbolo <code>|</code> pasa la salida de un comando como entrada al siguiente.
+          </div>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Dame más ejemplos de grep avanzado con expresiones regulares para analizar logs de servidor')">Grep avanzado ↗</button>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d3')">
+        <div class="day-num">3</div>
+        <div class="day-title-group">
+          <div class="day-title">Usuarios, grupos y permisos</div>
+          <div class="day-subtitle">chmod · chown · sudo · useradd · passwd</div>
+        </div>
+        <div class="day-toggle" id="toggle-d3">▼</div>
+      </div>
+      <div id="body-d3" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          Los permisos se dividen en 3 categorías: <strong>propietario (u)</strong>, <strong>grupo (g)</strong> y <strong>otros (o)</strong>. Cada uno puede tener <strong>lectura (r=4)</strong>, <strong>escritura (w=2)</strong> y <strong>ejecución (x=1)</strong>.<br><br>
+          Cuando ves <code>-rwxr-xr--</code>:<br>
+          — rwx = dueño puede leer, escribir, ejecutar<br>
+          — r-x = grupo puede leer y ejecutar<br>
+          — r-- = otros solo pueden leer<br><br>
+          En octal: rwx=7, r-x=5, r--=4, rw-=6, ---=0
+        </div>
+        <span class="section-label label-comandos">Comandos esenciales</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Permisos y usuarios</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Ver permisos</span>
+ls -la archivo.sh
+
+<span class="cmd-comment"># Cambiar permisos (octal)</span>
+chmod 755 script.sh    <span class="cmd-comment"># rwxr-xr-x</span>
+chmod 644 config.conf  <span class="cmd-comment"># rw-r--r--</span>
+chmod 600 clave.txt    <span class="cmd-comment"># rw------- (solo el dueño)</span>
+
+<span class="cmd-comment"># Cambiar propietario</span>
+chown usuario:grupo archivo.txt
+chown -R www-data:www-data /var/www/
+
+<span class="cmd-comment"># Crear usuario</span>
+sudo useradd -m -s /bin/bash juan
+sudo passwd juan
+
+<span class="cmd-comment"># Ver grupos de un usuario</span>
+groups franklyn
+id franklyn</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Laboratorio de permisos</div>
+          <ol class="ejercicio-steps">
+            <li>Crea un script: <code>echo "echo Hola Linux" > ~/test.sh</code></li>
+            <li>Intenta ejecutarlo: <code>./test.sh</code> — verás "Permission denied"</li>
+            <li>Dale permisos: <code>chmod +x ~/test.sh</code> y vuelve a ejecutarlo</li>
+            <li>Verifica permisos: <code>ls -la ~/test.sh</code></li>
+            <li>Crea usuario de prueba: <code>sudo useradd -m testuser && sudo passwd testuser</code></li>
+            <li>Cambia dueño: <code>sudo chown testuser ~/test.sh</code> — intenta editarlo</li>
+          </ol>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Explícame los permisos especiales de Linux: SUID, SGID y Sticky bit con ejemplos prácticos')">Permisos especiales SUID/SGID ↗</button>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d4')">
+        <div class="day-num">4</div>
+        <div class="day-title-group">
+          <div class="day-title">Gestión de procesos</div>
+          <div class="day-subtitle">ps · top · htop · kill · systemctl</div>
+        </div>
+        <div class="day-toggle" id="toggle-d4">▼</div>
+      </div>
+      <div id="body-d4" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          Un proceso es un programa en ejecución. Cada proceso tiene un <strong>PID</strong> (Process ID). En un servidor de aplicaciones, monitorear procesos es parte del trabajo diario. <strong>systemd</strong> es el gestor de servicios moderno — con <code>systemctl</code> controlas todos los servicios del sistema.
+        </div>
+        <span class="section-label label-comandos">Comandos esenciales</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Procesos y servicios</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Ver todos los procesos</span>
+ps aux
+ps aux | grep apache
+
+<span class="cmd-comment"># Monitor en tiempo real</span>
+top
+htop
+
+<span class="cmd-comment"># Matar proceso por PID</span>
+kill 1234
+kill -9 1234   <span class="cmd-comment"># forzar (SIGKILL)</span>
+
+<span class="cmd-comment"># Matar por nombre</span>
+pkill firefox
+killall nginx
+
+<span class="cmd-comment"># Servicios con systemctl</span>
+sudo systemctl status ssh
+sudo systemctl start ssh
+sudo systemctl stop ssh
+sudo systemctl restart ssh
+sudo systemctl enable ssh   <span class="cmd-comment"># iniciar al boot</span>
+
+<span class="cmd-comment"># Ver todos los servicios</span>
+systemctl list-units --type=service</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Monitor de servidor simulado</div>
+          <ol class="ejercicio-steps">
+            <li>Ejecuta <code>top</code> — observa %CPU, %MEM, estados (S=sleep, R=running, Z=zombie)</li>
+            <li>Sal con <code>q</code>, instala htop: <code>sudo apt install htop -y</code></li>
+            <li>Ejecuta <code>htop</code> — navega con F5 (árbol), F9 (kill), F10 (salir)</li>
+            <li>Inicia SSH: <code>sudo systemctl start ssh</code></li>
+            <li>Verifica: <code>sudo systemctl status ssh</code></li>
+            <li>Busca su PID: <code>ps aux | grep sshd</code></li>
+          </ol>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('¿Cómo identifico y termino correctamente procesos zombie en Linux? Dame un procedimiento paso a paso')">Procesos zombie ↗</button>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d5')">
+        <div class="day-num">5</div>
+        <div class="day-title-group">
+          <div class="day-title">Gestión de discos y almacenamiento</div>
+          <div class="day-subtitle">df · du · fdisk · mount · lsblk</div>
+        </div>
+        <div class="day-toggle" id="toggle-d5">▼</div>
+      </div>
+      <div id="body-d5" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          Monitorear el espacio en disco es una de las tareas más críticas. Un disco lleno puede tumbar aplicaciones y bases de datos completas. Debes saber identificar qué está consumiendo espacio y cómo montar/desmontar sistemas de archivos.
+        </div>
+        <span class="section-label label-comandos">Comandos esenciales</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Disco y almacenamiento</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Ver espacio en discos montados</span>
+df -h
+
+<span class="cmd-comment"># Ver tamaño de directorios</span>
+du -sh /var/log
+du -sh /* 2>/dev/null | sort -rh | head -10
+
+<span class="cmd-comment"># Ver dispositivos de bloque</span>
+lsblk
+
+<span class="cmd-comment"># Ver particiones</span>
+sudo fdisk -l
+
+<span class="cmd-comment"># Montar una partición</span>
+sudo mount /dev/sdb1 /mnt/datos
+
+<span class="cmd-comment"># Desmontar</span>
+sudo umount /mnt/datos
+
+<span class="cmd-comment"># Encontrar archivos grandes</span>
+find / -size +100M -type f 2>/dev/null</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Auditoría de espacio en disco</div>
+          <ol class="ejercicio-steps">
+            <li>Ejecuta <code>df -h</code> — identifica la partición con menos espacio</li>
+            <li>Los 10 dirs más grandes: <code>sudo du -sh /* 2>/dev/null | sort -rh | head -10</code></li>
+            <li>Revisa logs: <code>du -sh /var/log/*</code></li>
+            <li>Archivos >10MB: <code>find / -size +10M -type f 2>/dev/null</code></li>
+            <li>Documenta: <code>df -h > ~/reporte_disco.txt && du -sh /* 2>/dev/null >> ~/reporte_disco.txt</code></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d6')">
+        <div class="day-num">6</div>
+        <div class="day-title-group">
+          <div class="day-title">Gestión de paquetes</div>
+          <div class="day-subtitle">apt · dpkg · wget · curl · repositorios</div>
+        </div>
+        <div class="day-toggle" id="toggle-d6">▼</div>
+      </div>
+      <div id="body-d6" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          Kali/Debian usan <strong>APT</strong> (Advanced Package Tool). En entornos empresariales con RedHat/CentOS usarás <strong>yum/dnf</strong>, pero la lógica es igual. Saber instalar, actualizar y remover paquetes es fundamental para cualquier admin.
+        </div>
+        <span class="section-label label-comandos">Comandos esenciales</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">APT</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Actualizar lista de paquetes</span>
+sudo apt update
+
+<span class="cmd-comment"># Actualizar todo el sistema</span>
+sudo apt upgrade -y
+
+<span class="cmd-comment"># Instalar paquetes</span>
+sudo apt install nginx htop net-tools -y
+
+<span class="cmd-comment"># Buscar paquete</span>
+apt search apache
+
+<span class="cmd-comment"># Info de un paquete</span>
+apt show nginx
+
+<span class="cmd-comment"># Remover paquete</span>
+sudo apt remove nginx
+sudo apt purge nginx   <span class="cmd-comment"># elimina también configs</span>
+
+<span class="cmd-comment"># Ver paquetes instalados</span>
+dpkg -l | grep nginx
+
+<span class="cmd-comment"># Descargar de internet</span>
+wget https://example.com/archivo.tar.gz
+curl -O https://example.com/archivo.tar.gz</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Setup de herramientas de administración</div>
+          <ol class="ejercicio-steps">
+            <li>Actualiza el sistema: <code>sudo apt update && sudo apt upgrade -y</code></li>
+            <li>Instala herramientas: <code>sudo apt install htop net-tools curl wget tree -y</code></li>
+            <li>Instala nginx: <code>sudo apt install nginx -y && sudo systemctl start nginx</code></li>
+            <li>Verifica: <code>curl http://localhost</code> — deberías ver HTML de nginx</li>
+            <li>Verifica versión: <code>nginx -v</code></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d7')">
+        <div class="day-num">7</div>
+        <div class="day-title-group">
+          <div class="day-title">Repaso S1 + Editor VIM</div>
+          <div class="day-subtitle">vim · nano · repaso · mini-proyecto</div>
+        </div>
+        <div class="day-toggle" id="toggle-d7">▼</div>
+      </div>
+      <div id="body-d7" class="day-body">
+        <span class="section-label label-teoria">Teoría — VIM</span>
+        <div class="teoria-block">
+          VIM es el editor estándar en servidores Linux. Sus modos: <strong>Normal</strong> (navegación), <strong>Insert</strong> (escribir), <strong>Command</strong> (guardar/salir). Con 10 comandos básicos puedes editar cualquier archivo de configuración en producción.
+        </div>
+        <span class="section-label label-comandos">VIM esencial</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">VIM</span><span class="cmd-bar-desc">Comandos básicos</span></div>
+          <div class="cmd-code">vim archivo.conf   <span class="cmd-comment"># abrir archivo</span>
+
+i       <span class="cmd-comment"># entrar a modo Insert (escribir)</span>
+ESC     <span class="cmd-comment"># volver a modo Normal</span>
+:w      <span class="cmd-comment"># guardar</span>
+:q      <span class="cmd-comment"># salir</span>
+:wq     <span class="cmd-comment"># guardar y salir</span>
+:q!     <span class="cmd-comment"># salir sin guardar (emergencia)</span>
+dd      <span class="cmd-comment"># eliminar línea</span>
+yy      <span class="cmd-comment"># copiar línea</span>
+p       <span class="cmd-comment"># pegar</span>
+/texto  <span class="cmd-comment"># buscar "texto"</span>
+n       <span class="cmd-comment"># siguiente resultado</span>
+gg / G  <span class="cmd-comment"># inicio / final del archivo</span></div>
+        </div>
+        <span class="section-label label-ejercicio">Mini-proyecto Semana 1</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Script de reporte del sistema</div>
+          <ol class="ejercicio-steps">
+            <li>Crea: <code>vim ~/reporte_sistema.sh</code></li>
+            <li>Presiona <code>i</code> y escribe:<br><code>#!/bin/bash</code><br><code>echo "=== REPORTE ==="</code><br><code>echo "Fecha: $(date)"</code><br><code>echo "Uptime: $(uptime)"</code><br><code>df -h && free -h && who</code></li>
+            <li>Guarda y sal: <code>ESC → :wq</code></li>
+            <li>Dale permisos: <code>chmod +x ~/reporte_sistema.sh</code></li>
+            <li>Ejecútalo: <code>./reporte_sistema.sh</code></li>
+          </ol>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-green">Semana 1 completada</span>
+          <span class="badge badge-blue">7 días · 7 temas</span>
+          <span class="badge badge-amber">Listo para Shell Scripting</span>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Dame un quiz de 10 preguntas para evaluar mis conocimientos de la semana 1 de Linux: sistema de archivos, permisos, procesos y discos')">Quiz Semana 1 ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEMANA 2 -->
+  <div id="w2" class="week-panel">
+    <div class="week-header">
+      <h2>Semana 2 · Shell Scripting Avanzado</h2>
+      <p>El requisito más específico de la vacante — scripts para automatización y KPIs</p>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d8')">
+        <div class="day-num">8</div>
+        <div class="day-title-group">
+          <div class="day-title">Fundamentos de Shell Scripting</div>
+          <div class="day-subtitle">Variables · echo · read · shebang</div>
+        </div>
+        <div class="day-toggle" id="toggle-d8">▼</div>
+      </div>
+      <div id="body-d8" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          Un shell script es una secuencia de comandos guardada en un archivo. La primera línea siempre es el <strong>shebang</strong> (<code>#!/bin/bash</code>). Las variables en bash no tienen tipo — todo es texto por defecto. Para usar una variable se escribe <code>$NOMBRE</code>.
+        </div>
+        <span class="section-label label-comandos">Tu primer script real</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH SCRIPT</span><span class="cmd-bar-desc">Variables y I/O</span></div>
+          <div class="cmd-code">#!/bin/bash
+NOMBRE="Franklyn"
+SERVIDOR="web-prod-01"
+FECHA=$(date +%Y-%m-%d)   <span class="cmd-comment"># comando como variable</span>
+
+echo "Administrador: $NOMBRE"
+echo "Servidor: $SERVIDOR"
+echo "Fecha: $FECHA"
+
+<span class="cmd-comment"># Leer input del usuario</span>
+read -p "¿Tu nombre? " USUARIO
+echo "Hola, $USUARIO"
+
+<span class="cmd-comment"># Variables especiales</span>
+echo "Script: $0"
+echo "Argumento 1: $1"
+echo "Total args: $#"
+echo "PID del script: $$"</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Script de bienvenida al servidor</div>
+          <ol class="ejercicio-steps">
+            <li>Crea <code>mkdir ~/scripts && vim ~/scripts/bienvenida.sh</code></li>
+            <li>Escribe el script de arriba, guarda y hazlo ejecutable</li>
+            <li>Ejecútalo: <code>./scripts/bienvenida.sh Franklyn</code></li>
+            <li>Modifícalo para mostrar también hostname, IP y espacio libre</li>
+            <li>Usa <code>$(hostname)</code>, <code>$(ip addr | grep inet | head -2)</code>, <code>$(df -h / | tail -1)</code></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d9')">
+        <div class="day-num">9</div>
+        <div class="day-title-group">
+          <div class="day-title">Condicionales</div>
+          <div class="day-subtitle">if · elif · else · test · operadores</div>
+        </div>
+        <div class="day-toggle" id="toggle-d9">▼</div>
+      </div>
+      <div id="body-d9" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          En bash, <code>[ ]</code> y <code>[[ ]]</code> evalúan condiciones. Los operadores numéricos son: <strong>-eq</strong> (igual), <strong>-ne</strong> (diferente), <strong>-gt</strong> (mayor), <strong>-lt</strong> (menor), <strong>-ge</strong> (mayor o igual), <strong>-le</strong> (menor o igual). Para archivos: <strong>-f</strong> (existe y es archivo), <strong>-d</strong> (es directorio), <strong>-x</strong> (es ejecutable).
+        </div>
+        <span class="section-label label-comandos">Condicionales en bash</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH SCRIPT</span><span class="cmd-bar-desc">if/elif/else</span></div>
+          <div class="cmd-code">#!/bin/bash
+ESPACIO=$(df / | tail -1 | awk '{print $5}' | tr -d '%')
+
+if [ $ESPACIO -gt 90 ]; then
+  echo "ALERTA: Disco al $ESPACIO% — crítico"
+elif [ $ESPACIO -gt 70 ]; then
+  echo "AVISO: Disco al $ESPACIO% — vigilar"
+else
+  echo "OK: Disco al $ESPACIO%"
+fi
+
+<span class="cmd-comment"># Verificar si servicio está corriendo</span>
+if systemctl is-active --quiet nginx; then
+  echo "nginx: RUNNING"
+else
+  echo "nginx: STOPPED"
+  systemctl start nginx
+fi
+
+<span class="cmd-comment"># Verificar si archivo existe</span>
+if [ -f /etc/nginx/nginx.conf ]; then
+  echo "Config nginx encontrada"
+fi</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Script de health-check básico</div>
+          <ol class="ejercicio-steps">
+            <li>Crea <code>~/scripts/healthcheck.sh</code></li>
+            <li>Verifica disco (alerta si >80%), si SSH está corriendo, y si existe /etc/passwd</li>
+            <li>Usa colores: <code>echo -e "\e[32mOK\e[0m"</code> verde, <code>echo -e "\e[31mERROR\e[0m"</code> rojo</li>
+            <li>Ejecuta y verifica que los mensajes y colores son correctos</li>
+          </ol>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Explícame todos los operadores de comparación en bash scripting: numéricos, de texto y de archivos, con ejemplos prácticos')">Todos los operadores bash ↗</button>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d10')">
+        <div class="day-num">10</div>
+        <div class="day-title-group">
+          <div class="day-title">Bucles: for, while, until</div>
+          <div class="day-subtitle">Iteración · arrays · break · continue</div>
+        </div>
+        <div class="day-toggle" id="toggle-d10">▼</div>
+      </div>
+      <div id="body-d10" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          Los bucles automatizan tareas repetitivas: revisar 50 servidores, procesar archivos de log, verificar múltiples servicios. <strong>for</strong> itera sobre una lista definida. <strong>while</strong> repite mientras una condición sea verdadera — ideal para monitoreo continuo.
+        </div>
+        <span class="section-label label-comandos">Bucles en bash</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH SCRIPT</span><span class="cmd-bar-desc">for / while</span></div>
+          <div class="cmd-code">#!/bin/bash
+<span class="cmd-comment"># For sobre lista de servicios</span>
+for SERVICIO in nginx ssh mysql cron; do
+  if systemctl is-active --quiet $SERVICIO; then
+    echo "$SERVICIO: corriendo"
+  else
+    echo "$SERVICIO: detenido"
+  fi
+done
+
+<span class="cmd-comment"># For con rango numérico</span>
+for i in {1..5}; do
+  echo "Intento $i..."
+  sleep 1
+done
+
+<span class="cmd-comment"># For sobre archivos</span>
+for LOG in /var/log/*.log; do
+  echo "$(wc -l < $LOG) líneas — $LOG"
+done
+
+<span class="cmd-comment"># While con contador</span>
+CONTADOR=0
+while [ $CONTADOR -lt 5 ]; do
+  echo "Check #$CONTADOR: $(date)"
+  CONTADOR=$((CONTADOR + 1))
+  sleep 2
+done</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Monitor de servicios múltiples</div>
+          <ol class="ejercicio-steps">
+            <li>Crea <code>~/scripts/monitor_servicios.sh</code></li>
+            <li>Define: <code>SERVICIOS=("ssh" "cron" "nginx")</code></li>
+            <li>Usa for para verificar cada servicio e imprimir su estado</li>
+            <li>Si está caído, intenta iniciarlo automáticamente</li>
+            <li>Al final imprime: "X de Y servicios corriendo"</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d11')">
+        <div class="day-num">11</div>
+        <div class="day-title-group">
+          <div class="day-title">Funciones y scripts modulares</div>
+          <div class="day-subtitle">Funciones · return · parámetros · source</div>
+        </div>
+        <div class="day-toggle" id="toggle-d11">▼</div>
+      </div>
+      <div id="body-d11" class="day-body">
+        <span class="section-label label-comandos">Funciones en bash</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH SCRIPT</span><span class="cmd-bar-desc">Funciones reutilizables</span></div>
+          <div class="cmd-code">#!/bin/bash
+
+check_service() {
+  local SERVICE=$1
+  if systemctl is-active --quiet $SERVICE; then
+    echo "[OK] $SERVICE está corriendo"
+    return 0
+  else
+    echo "[FAIL] $SERVICE está detenido"
+    return 1
+  fi
+}
+
+log() {
+  local NIVEL=$1
+  local MENSAJE=$2
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] [$NIVEL] $MENSAJE"
+}
+
+check_disk() {
+  local THRESHOLD=${1:-80}
+  local USO=$(df / | tail -1 | awk '{print $5}' | tr -d '%')
+  if [ $USO -gt $THRESHOLD ]; then
+    log "WARN" "Disco al ${USO}% (umbral: ${THRESHOLD}%)"
+    return 1
+  fi
+  log "INFO" "Disco OK: ${USO}%"
+}
+
+<span class="cmd-comment"># Llamar funciones</span>
+log "INFO" "Iniciando verificación"
+check_service ssh
+check_service nginx
+check_disk 75</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Biblioteca de funciones de admin</div>
+          <ol class="ejercicio-steps">
+            <li>Crea <code>~/scripts/lib_admin.sh</code> con 4 funciones: check_service, check_disk, get_memory_usage, log</li>
+            <li>Crea <code>~/scripts/reporte_completo.sh</code> con <code>source ~/scripts/lib_admin.sh</code></li>
+            <li>El reporte debe llamar todas las funciones y guardar en <code>/tmp/reporte_$(date +%Y%m%d).txt</code></li>
+            <li>Ejecuta y verifica que el archivo se genera correctamente</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d12')">
+        <div class="day-num">12</div>
+        <div class="day-title-group">
+          <div class="day-title">Procesamiento de texto: awk y sed</div>
+          <div class="day-subtitle">Herramientas clave para KPIs y reportes</div>
+        </div>
+        <div class="day-toggle" id="toggle-d12">▼</div>
+      </div>
+      <div id="body-d12" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          <strong>awk</strong> procesa texto columna por columna — perfecto para extraer métricas de logs. <strong>sed</strong> modifica texto en stream — ideal para editar archivos de configuración sin abrir un editor. Ambas son fundamentales para los KPIs que pide la vacante.
+        </div>
+        <span class="section-label label-comandos">awk y sed en acción</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">awk / sed</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># AWK: extraer columnas</span>
+df -h | awk '{print $1, $5}'
+ps aux | awk '{print $1, $2, $11}'
+
+<span class="cmd-comment"># AWK: filtrar por condición</span>
+ps aux | awk '$3 > 50 {print $1, $3, $11}'
+awk -F: '{print $1}' /etc/passwd
+
+<span class="cmd-comment"># AWK: sumar valores</span>
+df | awk 'NR>1 {sum += $3} END {print "Total:", sum}'
+
+<span class="cmd-comment"># SED: reemplazar texto</span>
+sed 's/viejo/nuevo/g' archivo.txt
+sed -i 's/puerto=80/puerto=8080/g' config.conf
+
+<span class="cmd-comment"># SED: eliminar líneas</span>
+sed '/^#/d' config.conf        <span class="cmd-comment"># eliminar comentarios</span>
+sed '/^$/d' archivo.txt        <span class="cmd-comment"># eliminar líneas vacías</span>
+
+<span class="cmd-comment"># SED: mostrar rango de líneas</span>
+sed -n '10,20p' /var/log/syslog</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio de KPIs con awk</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Generador de métricas del sistema</div>
+          <ol class="ejercicio-steps">
+            <li>Top 5 por CPU: <code>ps aux --sort=-%cpu | head -6 | awk '{print $1,$2,$3,$11}'</code></li>
+            <li>Top 5 por RAM: <code>ps aux --sort=-%mem | head -6 | awk '{print $1,$2,$4,$11}'</code></li>
+            <li>Usuarios únicos: <code>who | awk '{print $1}' | sort -u | wc -l</code></li>
+            <li>Crea script que genere estas métricas y las guarde como <code>KPI_$(date +%Y%m%d_%H%M).txt</code></li>
+          </ol>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Enséñame awk avanzado: arrays asociativos, bloques BEGIN/END, y cómo calcular estadísticas de logs de servidor')">AWK avanzado ↗</button>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d13')">
+        <div class="day-num">13</div>
+        <div class="day-title-group">
+          <div class="day-title">Cron jobs y automatización</div>
+          <div class="day-subtitle">crontab · sintaxis cron · programar reportes</div>
+        </div>
+        <div class="day-toggle" id="toggle-d13">▼</div>
+      </div>
+      <div id="body-d13" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          <strong>cron</strong> ejecuta scripts automáticamente en horarios definidos. Sintaxis de 5 campos:<br><br>
+          <code>minuto  hora  día-mes  mes  día-semana  comando</code><br><br>
+          <code>*</code> = siempre · <code>*/5</code> = cada 5 · <code>0,30</code> = en 0 y 30 · <code>1-5</code> = lunes a viernes
+        </div>
+        <span class="section-label label-comandos">Crontab en práctica</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">CRON</span><span class="cmd-bar-desc">Programar tareas</span></div>
+          <div class="cmd-code">crontab -e    <span class="cmd-comment"># editar crontab</span>
+crontab -l    <span class="cmd-comment"># ver crontab actual</span>
+
+<span class="cmd-comment"># Cada día a las 2:00 AM</span>
+0 2 * * * /home/user/scripts/backup.sh
+
+<span class="cmd-comment"># Cada hora, días de semana</span>
+0 * * * 1-5 /home/user/scripts/kpi_report.sh
+
+<span class="cmd-comment"># Cada 5 minutos (con log)</span>
+*/5 * * * * /home/user/scripts/monitor.sh >> /var/log/monitor.log 2>&1
+
+<span class="cmd-comment"># El primer día de cada mes</span>
+0 0 1 * * /home/user/scripts/monthly_report.sh</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Sistema de monitoreo automático</div>
+          <ol class="ejercicio-steps">
+            <li>Modifica healthcheck.sh para guardar en <code>/var/log/healthcheck.log</code> con timestamp</li>
+            <li>Agrega a crontab para que corra cada minuto: <code>crontab -e</code></li>
+            <li>Espera 3 minutos y verifica: <code>tail -20 /var/log/healthcheck.log</code></li>
+            <li>Desactívalo comentando la línea con <code>#</code></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d14')">
+        <div class="day-num">14</div>
+        <div class="day-title-group">
+          <div class="day-title">Proyecto Semana 2 — Script de KPIs</div>
+          <div class="day-subtitle">Script profesional integrador para la entrevista</div>
+        </div>
+        <div class="day-toggle" id="toggle-d14">▼</div>
+      </div>
+      <div id="body-d14" class="day-body">
+        <span class="section-label label-comandos">Script de KPIs completo</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH SCRIPT</span><span class="cmd-bar-desc">kpi_report.sh</span></div>
+          <div class="cmd-code">#!/bin/bash
+FECHA=$(date '+%Y-%m-%d %H:%M:%S')
+REPORTE="/tmp/kpi_$(date +%Y%m%d_%H%M).txt"
+
+log() { echo "[${FECHA}] [$1] $2" | tee -a $REPORTE; }
+
+log "INFO" "===== KPI — SERVIDOR: $(hostname) ====="
+
+CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | tr -d '%us,')
+log "KPI" "CPU Usage: ${CPU}%"
+
+MEM_TOTAL=$(free -m | awk '/Mem/{print $2}')
+MEM_USED=$(free -m | awk '/Mem/{print $3}')
+MEM_PCT=$((MEM_USED * 100 / MEM_TOTAL))
+log "KPI" "Memory: ${MEM_USED}MB/${MEM_TOTAL}MB (${MEM_PCT}%)"
+
+df -h | awk 'NR>1' | while read line; do
+  PART=$(echo $line | awk '{print $1}')
+  USO=$(echo $line | awk '{print $5}')
+  log "KPI" "Disco $PART: $USO"
+done
+
+for SVC in ssh cron nginx; do
+  STATUS=$(systemctl is-active $SVC 2>/dev/null)
+  log "SVC" "$SVC: $STATUS"
+done
+
+log "INFO" "Top procesos CPU:"
+ps aux --sort=-%cpu | awk 'NR>1&&NR<=4{printf "  %-10s CPU:%s%% MEM:%s%%\n",$1,$3,$4}' \
+  | tee -a $REPORTE
+
+log "INFO" "Reporte: $REPORTE"</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio final semana 2</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Implementar y programar el KPI script</div>
+          <ol class="ejercicio-steps">
+            <li>Crea <code>~/scripts/kpi_report.sh</code> con el código de arriba</li>
+            <li>Ejecútalo y revisa el reporte en /tmp/</li>
+            <li>Agrégalo al crontab cada 30 minutos</li>
+            <li>Añade alerta si CPU >80% o disco >85%</li>
+          </ol>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-green">Semana 2 completada</span>
+          <span class="badge badge-purple">Shell Scripting dominado</span>
+          <span class="badge badge-amber">Listo para Redes</span>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Dame un quiz de 10 preguntas sobre shell scripting en bash: variables, condicionales, bucles, funciones y awk/sed')">Quiz Semana 2 ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEMANA 3 -->
+  <div id="w3" class="week-panel">
+    <div class="week-header">
+      <h2>Semana 3 · Redes, SSH y Administración de Servidores</h2>
+      <p>Administración remota, networking y seguridad del sistema</p>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d15')">
+        <div class="day-num">15</div>
+        <div class="day-title-group">
+          <div class="day-title">Redes en Linux</div>
+          <div class="day-subtitle">ip · ifconfig · netstat · ss · ping · traceroute</div>
+        </div>
+        <div class="day-toggle" id="toggle-d15">▼</div>
+      </div>
+      <div id="body-d15" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          La vacante pide conocimiento básico de telecomunicaciones. Debes saber diagnosticar conectividad, identificar interfaces, ver puertos abiertos, y entender IP, máscara, gateway y DNS.
+        </div>
+        <span class="section-label label-comandos">Comandos de red</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Networking</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Ver interfaces y IPs</span>
+ip addr show
+ip a
+ifconfig
+
+<span class="cmd-comment"># Ver tabla de rutas</span>
+ip route show
+route -n
+
+<span class="cmd-comment"># Verificar conectividad</span>
+ping -c 4 google.com
+traceroute google.com
+
+<span class="cmd-comment"># Ver puertos en uso</span>
+ss -tulnp
+netstat -tulnp
+
+<span class="cmd-comment"># Ver conexiones activas</span>
+ss -s
+ss -tp
+
+<span class="cmd-comment"># DNS lookup</span>
+nslookup google.com
+dig google.com
+
+<span class="cmd-comment"># Config DNS</span>
+cat /etc/hosts
+cat /etc/resolv.conf</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Diagnóstico de red completo</div>
+          <ol class="ejercicio-steps">
+            <li>Identifica tu IP: <code>ip addr show</code></li>
+            <li>Verifica conectividad: <code>ping -c 4 8.8.8.8</code></li>
+            <li>Verifica DNS: <code>ping -c 4 google.com</code></li>
+            <li>Puertos abiertos: <code>ss -tulnp</code></li>
+            <li>Crea <code>diagnostico_red.sh</code> que haga todos estos checks</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d16')">
+        <div class="day-num">16</div>
+        <div class="day-title-group">
+          <div class="day-title">SSH — Administración remota</div>
+          <div class="day-subtitle">ssh · scp · ssh-keygen · configuración sshd</div>
+        </div>
+        <div class="day-toggle" id="toggle-d16">▼</div>
+      </div>
+      <div id="body-d16" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          SSH es la herramienta fundamental para administrar servidores remotamente. En el trabajo, todos los servidores Linux se administran por SSH. La autenticación por clave (más segura que contraseña) es el estándar en producción.
+        </div>
+        <span class="section-label label-comandos">SSH completo</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">SSH y SCP</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Conectar</span>
+ssh usuario@192.168.1.100
+ssh -p 2222 usuario@servidor.com
+
+<span class="cmd-comment"># Generar claves</span>
+ssh-keygen -t ed25519 -C "franklyn@trabajo"
+
+<span class="cmd-comment"># Copiar clave pública</span>
+ssh-copy-id usuario@servidor.com
+
+<span class="cmd-comment"># Copiar archivos con SCP</span>
+scp archivo.txt usuario@servidor:/home/usuario/
+scp -r /carpeta/ usuario@servidor:/destino/
+
+<span class="cmd-comment"># Ejecutar comando remoto</span>
+ssh usuario@servidor "df -h && free -h"
+
+<span class="cmd-comment"># ~/.ssh/config (alias de servidores)</span>
+<span class="cmd-comment"># Host prod-web</span>
+<span class="cmd-comment">#   HostName 192.168.1.100</span>
+<span class="cmd-comment">#   User admin</span>
+<span class="cmd-comment">#   Port 22</span>
+<span class="cmd-comment"># Luego: ssh prod-web</span></div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">SSH a localhost</div>
+          <ol class="ejercicio-steps">
+            <li>Genera claves: <code>ssh-keygen -t ed25519</code></li>
+            <li>Conéctate a localhost: <code>ssh $(whoami)@127.0.0.1</code></li>
+            <li>Configura alias en <code>~/.ssh/config</code> para 127.0.0.1</li>
+            <li>Ejecuta comando remoto: <code>ssh local "ps aux | head -5"</code></li>
+            <li>Copia archivo: <code>scp ~/scripts/kpi_report.sh local:/tmp/</code></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d17')">
+        <div class="day-num">17</div>
+        <div class="day-title-group">
+          <div class="day-title">Logs del sistema</div>
+          <div class="day-subtitle">journalctl · syslog · análisis · seguridad</div>
+        </div>
+        <div class="day-toggle" id="toggle-d17">▼</div>
+      </div>
+      <div id="body-d17" class="day-body">
+        <span class="section-label label-teoria">Teoría</span>
+        <div class="teoria-block">
+          Los logs son la herramienta principal de diagnóstico. En producción, leer logs es lo primero cuando algo falla. Los más importantes: <strong>/var/log/syslog</strong> (general), <strong>/var/log/auth.log</strong> (autenticación), <strong>/var/log/kern.log</strong> (kernel).
+        </div>
+        <span class="section-label label-comandos">Análisis de logs</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Logs y journald</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Ver logs en tiempo real</span>
+tail -f /var/log/syslog
+tail -f /var/log/auth.log
+
+<span class="cmd-comment"># Journalctl</span>
+journalctl -f
+journalctl -u nginx
+journalctl --since "1 hour ago"
+journalctl -p err
+
+<span class="cmd-comment"># Buscar errores</span>
+grep -i "error\|fail\|critical" /var/log/syslog | tail -20
+
+<span class="cmd-comment"># IPs con más intentos fallidos</span>
+grep "Failed password" /var/log/auth.log \
+  | awk '{print $11}' | sort | uniq -c | sort -rn
+
+<span class="cmd-comment"># Ver historial de logins</span>
+last | head -20
+lastb | head -20</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicio práctico</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Script analizador de logs</div>
+          <ol class="ejercicio-steps">
+            <li>Crea <code>~/scripts/analizar_logs.sh</code></li>
+            <li>Cuenta errores en syslog de hoy, intentos de login fallidos, líneas en auth.log</li>
+            <li>Extrae IPs con más intentos fallidos usando awk</li>
+            <li>Genera resumen en pantalla con formato legible</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d18')">
+        <div class="day-num">18–21</div>
+        <div class="day-title-group">
+          <div class="day-title">Firewall, backups, variables de entorno y proyecto S3</div>
+          <div class="day-subtitle">ufw · rsync · env · PATH · panel de administración</div>
+        </div>
+        <div class="day-toggle" id="toggle-d18">▼</div>
+      </div>
+      <div id="body-d18" class="day-body">
+        <span class="section-label label-comandos">Días 18–21</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Firewall, backup, entorno</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># DÍA 18 — UFW Firewall</span>
+sudo ufw status
+sudo ufw enable
+sudo ufw allow ssh
+sudo ufw allow 80/tcp
+sudo ufw deny 23
+sudo ufw status verbose
+
+<span class="cmd-comment"># DÍA 19 — Backups con rsync</span>
+rsync -avz /home/user/ /backup/user/
+rsync -avz --delete /origen/ /destino/
+rsync -avz -e ssh user@servidor:/datos/ /local/backup/
+
+<span class="cmd-comment"># DÍA 20 — Variables de entorno</span>
+printenv
+echo $PATH
+export MI_VAR="valor"
+
+<span class="cmd-comment"># Aliases permanentes en .bashrc</span>
+echo 'alias ll="ls -la"' >> ~/.bashrc
+echo 'alias logs="tail -f /var/log/syslog"' >> ~/.bashrc
+echo 'export PATH=$PATH:~/scripts' >> ~/.bashrc
+source ~/.bashrc</div>
+        </div>
+        <span class="section-label label-ejercicio">Mini-proyecto Semana 3</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Panel de administración completo</div>
+          <ol class="ejercicio-steps">
+            <li><strong>Día 18:</strong> Configura UFW, permite SSH y HTTP, bloquea todo lo demás</li>
+            <li><strong>Día 19:</strong> Script de backup de ~/scripts/ con rsync y fecha en el nombre</li>
+            <li><strong>Día 20:</strong> Configura aliases útiles en .bashrc, recarga y pruébalos</li>
+            <li><strong>Día 21:</strong> Crea menú interactivo que integre todos los scripts anteriores</li>
+          </ol>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Muéstrame cómo crear un menú interactivo en bash con opciones numeradas para un panel de administración de servidor Linux')">Menú bash interactivo ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEMANA 4 -->
+  <div id="w4" class="week-panel">
+    <div class="week-header">
+      <h2>Semana 4 · Nivel Profesional + Simulacros</h2>
+      <p>Escenarios reales, troubleshooting y preparación para la entrevista</p>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d22')">
+        <div class="day-num">22–25</div>
+        <div class="day-title-group">
+          <div class="day-title">Administración avanzada</div>
+          <div class="day-subtitle">sudoers · sysctl · telecomunicaciones · multi-servidor</div>
+        </div>
+        <div class="day-toggle" id="toggle-d22">▼</div>
+      </div>
+      <div id="body-d22" class="day-body">
+        <span class="section-label label-comandos">Días 22–25</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">BASH</span><span class="cmd-bar-desc">Admin avanzada</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># DÍA 22 — sudoers</span>
+sudo visudo
+<span class="cmd-comment"># franklyn ALL=(ALL) NOPASSWD: /usr/bin/systemctl</span>
+sudo -l
+
+<span class="cmd-comment"># DÍA 23 — Parámetros del sistema</span>
+ulimit -a
+sysctl -a
+cat /proc/cpuinfo
+cat /proc/meminfo
+
+<span class="cmd-comment"># DÍA 24 — Puertos famosos (telecom)</span>
+<span class="cmd-comment"># SSH=22, HTTP=80, HTTPS=443</span>
+<span class="cmd-comment"># FTP=21, DNS=53, SMTP=25</span>
+ss -tulnp | grep ':80\|:443\|:22'
+
+<span class="cmd-comment"># DÍA 25 — Múltiples servidores</span>
+for HOST in web-01 web-02 db-01; do
+  echo "=== $HOST ==="
+  ssh $HOST "uptime && df -h / | tail -1"
+done</div>
+        </div>
+        <span class="section-label label-tip">Tip para la entrevista</span>
+        <div class="tip-block">Cuando pregunten sobre telecomunicaciones, menciona: modelo OSI, TCP/UDP, puertos conocidos, VLANs, y la diferencia entre routing y switching. Aunque seas básico, el vocabulario correcto hace la diferencia.</div>
+        <button class="ask-btn" onclick="sendPrompt('Dame una explicación básica de telecomunicaciones para un ingeniero Linux: modelo OSI, TCP/UDP, puertos importantes y conceptos de red para la entrevista')">Teleco para la entrevista ↗</button>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d26')">
+        <div class="day-num">26–28</div>
+        <div class="day-title-group">
+          <div class="day-title">Simulacros de escenarios reales</div>
+          <div class="day-subtitle">Servidor lento · disco lleno · servicio caído</div>
+        </div>
+        <div class="day-toggle" id="toggle-d26">▼</div>
+      </div>
+      <div id="body-d26" class="day-body">
+        <span class="section-label label-comandos">Flujos de troubleshooting</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">SCENARIO</span><span class="cmd-bar-desc">Servidor lento</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># 1. Carga del sistema</span>
+uptime
+w
+
+<span class="cmd-comment"># 2. CPU y RAM</span>
+top -bn1 | head -20
+free -h
+
+<span class="cmd-comment"># 3. Procesos problemáticos</span>
+ps aux --sort=-%cpu | head -10
+ps aux --sort=-%mem | head -10
+
+<span class="cmd-comment"># 4. Disco e I/O</span>
+df -h
+iostat -x 1 5
+
+<span class="cmd-comment"># 5. Red</span>
+ss -s
+
+<span class="cmd-comment"># 6. Logs de errores</span>
+journalctl -p err --since "1 hour ago"</div>
+        </div>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">SCENARIO</span><span class="cmd-bar-desc">Disco al 100%</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># 1. Confirmar</span>
+df -h
+
+<span class="cmd-comment"># 2. ¿Dónde está el espacio?</span>
+du -sh /* 2>/dev/null | sort -rh | head -10
+du -sh /var/log/* | sort -rh | head -10
+
+<span class="cmd-comment"># 3. Archivos grandes</span>
+find / -size +500M -type f 2>/dev/null
+
+<span class="cmd-comment"># 4. Limpiar logs del journal</span>
+journalctl --disk-usage
+sudo journalctl --vacuum-size=500M</div>
+        </div>
+        <span class="section-label label-ejercicio">Ejercicios de simulacro</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Practica los 3 escenarios</div>
+          <ol class="ejercicio-steps">
+            <li><strong>Día 26:</strong> Ejecuta el flujo de "servidor lento" y documenta cada resultado en tu VM</li>
+            <li><strong>Día 27:</strong> Crea archivos grandes: <code>dd if=/dev/zero of=/tmp/test bs=1M count=500</code> y practica el diagnóstico</li>
+            <li><strong>Día 28:</strong> Para nginx, diagnostica el fallo y reinicia usando solo comandos de la guía</li>
+          </ol>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Dame 5 escenarios más de troubleshooting en Linux que me puedan preguntar en una entrevista para Ingeniero Linux I, con el procedimiento completo')">Más escenarios de entrevista ↗</button>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay('d29')">
+        <div class="day-num">29–30</div>
+        <div class="day-title-group">
+          <div class="day-title">Proyecto final y simulacro de entrevista</div>
+          <div class="day-subtitle">admin_suite.sh · cheat sheet · entrevista técnica</div>
+        </div>
+        <div class="day-toggle" id="toggle-d29">▼</div>
+      </div>
+      <div id="body-d29" class="day-body">
+        <span class="section-label label-teoria">Proyecto final — Día 29</span>
+        <div class="teoria-block">
+          Crea <code>admin_suite.sh</code> — un script maestro con menú que integre todo lo aprendido: reporte del sistema, monitoreo de servicios, análisis de logs, diagnóstico de red, KPIs. Este será tu portafolio para la entrevista.
+        </div>
+        <span class="section-label label-comandos">Cheat sheet final</span>
+        <div class="cmd-block">
+          <div class="cmd-bar"><span class="cmd-bar-label">QUICK REF</span><span class="cmd-bar-desc">Comandos más preguntados</span></div>
+          <div class="cmd-code"><span class="cmd-comment"># Sistema</span>
+uname -a · hostnamectl · uptime · who · w
+
+<span class="cmd-comment"># Rendimiento</span>
+top · htop · vmstat 1 5 · iostat · free -h
+
+<span class="cmd-comment"># Red</span>
+ip addr · ss -tulnp · ping · traceroute
+
+<span class="cmd-comment"># Archivos</span>
+find / -name "*.conf" 2>/dev/null
+grep -r "texto" /ruta/
+tail -f /var/log/syslog
+
+<span class="cmd-comment"># Servicios</span>
+systemctl status|start|stop|restart SERVICIO
+journalctl -u SERVICIO -f
+
+<span class="cmd-comment"># Permisos</span>
+chmod 755 archivo
+chown user:group archivo
+ls -la</div>
+        </div>
+        <span class="section-label label-ejercicio">Día 30 — Simulacro de entrevista</span>
+        <div class="ejercicio-block">
+          <div class="ejercicio-title">Entrevista técnica completa</div>
+          <ol class="ejercicio-steps">
+            <li>Sin mirar notas: navega desde / hasta /var/log/syslog en 30 segundos</li>
+            <li>En 2 minutos: crea un script que verifique 3 servicios, muestre disco y genere log</li>
+            <li>Explica en voz alta: <code>ps aux | grep nginx | awk '{print $2}' | xargs kill -9</code></li>
+            <li>Configura un cron cada 15 minutos de memoria</li>
+            <li>Ejecuta admin_suite.sh y demuestra todas las funciones</li>
+          </ol>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-green">30 días completados</span>
+          <span class="badge badge-blue">Ingeniero Linux I listo</span>
+          <span class="badge badge-purple">Shell Scripting avanzado</span>
+          <span class="badge badge-amber">Vacante conquistada</span>
+        </div>
+        <button class="ask-btn" onclick="sendPrompt('Hazme una entrevista técnica simulada para Ingeniero Linux I. Hazme 10 preguntas técnicas de uno en uno, espera mi respuesta y corrígeme')">Entrevista simulada ↗</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showWeek(id, btn) {
+  document.querySelectorAll('.week-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleDay(id) {
+  const body = document.getElementById('body-' + id);
+  const toggle = document.getElementById('toggle-' + id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  if (toggle) toggle.classList.toggle('open', !isOpen);
+}
+</script>
